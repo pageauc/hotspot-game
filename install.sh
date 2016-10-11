@@ -21,8 +21,8 @@ else
 fi    
 cd $GAME_DIR
 INSTALL_PATH=$( pwd )
-echo "Install Folder is" $INSTALL_PATH
-echo "1 - Downloading github repo files"
+echo "------------------------------------------------"
+echo "1 - Downloading GitHub Repo files to $INSTALL_PATH"
 wget -O install.sh -q --show-progress https://raw.github.com/pageauc/hotspot-game/master/hotspot-install.sh
 if [ $? -ne 0 ] ;  then
   wget -O install.sh https://raw.github.com/pageauc/hotspot-game/master/hotspot-install.sh
