@@ -15,6 +15,7 @@ download and execute the github install.sh script for hotspot-game
     cd ~
     wget https://raw.github.com/pageauc/hotspot-game/master/install.sh
     chmod +x install.sh
+    ./install.sh
 
 #### Reference Information
 * hotspot-game YouTube video here https://youtu.be/xFl3lmbEO9Y

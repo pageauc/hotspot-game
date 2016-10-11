@@ -47,6 +47,7 @@ echo "cd ~/hotspot-game"
 echo "./hotspot-game.py"
 echo
 echo "Good Luck Claude" 
+rm ~/install.sh
 
 
 
