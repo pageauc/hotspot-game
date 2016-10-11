@@ -17,6 +17,9 @@ download and execute the github install.sh script for hotspot-game
     chmod +x install.sh
     ./install.sh
 
+This will install required files into a folder called ~/hotspot-game    
+See How to Run Program section below for details on running hotspot-game.py
+    
 #### Reference Information
 * hotspot-game YouTube video here https://youtu.be/xFl3lmbEO9Y
 * RPI Forum post here https://www.raspberrypi.org/forums/viewtopic.php?p=1026124#p1026124
@@ -42,14 +45,6 @@ video not tested) or a VGA adapter. The program is run from the RPI GUI desktop 
 The default 640x480 window can be resized using the WINDOW_BIGGER resize multiplier variable.
 Use nano to edit if desired.
 
-#### Credits
-Some of this code is based on a YouTube tutorial by
-Kyle Hounslow using C here https://www.youtube.com/watch?v=X6rPdRZzgjg
-
-Thanks to Adrian Rosebrock jrosebr1 at http://www.pyimagesearch.com 
-for the PiVideoStream Class code available on github at
-https://github.com/jrosebr1/imutils/blob/master/imutils/video/pivideostream.py
-
 #### How to Run Program    
 To launch program make sure camera and video display are connected. You must
 be in a RPI desktop GUI session.  Open a desktop terminal session, File Manger.
@@ -68,6 +63,14 @@ Variable values are stored in the hotspot-game.py file. Use the nano editor to
 modify these settings per the comments.  Most settings should be OK and should
 not need to be changed. Others may need to be fine tuned. The openCV settings most
 likely won't need to be changed unless you are familiar with them.
+
+#### Credits
+Some of this code is based on a YouTube tutorial by
+Kyle Hounslow using C here https://www.youtube.com/watch?v=X6rPdRZzgjg
+
+Thanks to Adrian Rosebrock jrosebr1 at http://www.pyimagesearch.com 
+for the PiVideoStream Class code available on github at
+https://github.com/jrosebr1/imutils/blob/master/imutils/video/pivideostream.py
 
 Have Fun
 
