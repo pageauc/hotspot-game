@@ -1,10 +1,25 @@
 # hotspot-game.py - MOTION TRACKING GAME
 #### A Raspberry Pi Camera Motion Tracking Game using Threaded Video Stream, OpenCV2 and Python2
-  
+
+For easy pi-timolo install onto raspbian RPI. 
+
+    curl -L https://raw.github.com/pageauc/hotspot-game/master/install.sh | bash
+
+From a computer logged into the RPI via ssh(Putty) session use mouse to highlight command above, right click, copy.  
+Then select ssh(Putty) window, mouse right click, paste.  The command should 
+download and execute the github install.sh script for hotspot-game
+
+or Manual install
+
+    cd ~
+    wget https://raw.github.com/pageauc/hotspot-game/master/install.sh
+    chmod +x install.sh
+
+### Reference Information
 * hotspot-game YouTube video here https://youtu.be/xFl3lmbEO9Y
 * RPI Forum post here https://www.raspberrypi.org/forums/viewtopic.php?p=1026124#p1026124
 * motion-track YouTube video here using RPI B2 https://youtu.be/09JS7twPBsQ
-* github repo here https://github.com/pageauc/motion-track/tree/master/hotspot-game
+* github repo here https://github.com/pageauc/hotspot-game
 
 ### Program Description
 This is a raspberry pi computer openCV2 motion tracking game.
@@ -33,23 +48,15 @@ Thanks to Adrian Rosebrock jrosebr1 at http://www.pyimagesearch.com
 for the PiVideoStream Class code available on github at
 https://github.com/jrosebr1/imutils/blob/master/imutils/video/pivideostream.py
 
-### Quick Setup
-Login to RPI via SSH or desktop terminal session and perform the following
-
-    sudo apt-get update
-    sudo apt-get upgrade
-    sudo apt-get install -y python-opencv python-picamera
-    sudo apt-get install -y fonts-freefont-ttf # Required for Jessie Lite Only
-    cd ~
-    mkdir hotspot-game
-    cd ~/hotspot-game
-    wget https://raw.github.com/pageauc/motion-track/master/hotspot-game/hotspot-game.py
-    chmod +x hotspot-game.py
-    
+#### How to Run Program    
 To launch program make sure camera and video display are connected. You must
 be in a RPI desktop GUI session.  Open a desktop terminal session, File Manger.
 or Menu Programming, Python2 (IDLE). Navigate to the hotspot-game folder and
-execute ./hotspot-game.py or
+execute 
+
+    ./hotspot-game.py or
+
+or
     
     python ./hotspot-game.py
     
