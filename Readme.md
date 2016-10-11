@@ -1,7 +1,7 @@
 # hotspot-game.py - MOTION TRACKING GAME
 #### A Raspberry Pi Camera Motion Tracking Game using Threaded Video Stream, OpenCV2 and Python2
 
-For easy pi-timolo install onto raspbian RPI. 
+For easy hotspot-game install onto a Raspberry Pi with latest raspbian. 
 
     curl -L https://raw.github.com/pageauc/hotspot-game/master/install.sh | bash
 
