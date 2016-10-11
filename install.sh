@@ -1,18 +1,20 @@
 #!/bin/bash
 # Convenient hotspot-game install.sh script written by Claude Pageau 1-Jul-2016
-ver="1.9"
+ver="1.0"
+GAME_DIR='hotspot-game'  # Default folder install location
+# Remember where this script was launched from
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-GAME_DIR='hotspot-game'
+echo "------------------------------------------------"
 echo "      hotspot-game Install.sh script ver $ver"
 echo "Install or Upgrade hotspot-game Object speed tracking"
-echo "-----------------------------------------------"
+echo "------------------------------------------------"
 echo "Checking for hotspot-game folder"
 cd ~
 mkdir -p $GAME_DIR
 cd $GAME_DIR
 echo "Done Folder Create"
 INSTALL_PATH=$( pwd )
-echo "Install Folder is " $INSTALL_PATH
+echo "Install Folder is" $INSTALL_PATH
 echo "1 - Downloading github repo files"
 wget -O install.sh -q --show-progress https://raw.github.com/pageauc/hotspot-game/master/install.sh
 if [ $? -ne 0 ] ;  then
@@ -42,26 +44,31 @@ echo "5 - Installing hotspot-game Dependencies"
 sudo apt-get install -y python-opencv python-picamera
 sudo apt-get install -y fonts-freefont-ttf # Required for Jessie Lite Only
 echo "Done Dependencies"
-echo "6 - Installation Complete"
-echo "-----------------------------------------------"
-echo "See Readme.md for hotspot-game Program Requirements, Configuration and Calibration"
-echo ""
-echo "You should reboot RPI if there are significant Raspbian system file updates"
-echo "You must run this game from the raspberry pi with monitor/TV attached"
-echo "and the Raspbian Desktop GUI running"
-echo "To start game open file manager or a Terminal session then change to" 
-echo "hotspot-game folder and launch per command below"
-echo ""
-echo "cd ~/hotspot-game"
-echo "./hotspot-game.py"
-echo
-echo "Good Luck Claude"
 cd $DIR
-echo "Script Path="$DIR
-echo "Install Path="$INSTALL_PATH
-if [ "$DIR" != "$INSTALL_PATH" ]; then
+# Check if install.sh was launched from hotspot-game folder
+if [ "$DIR" = "$INSTALL_PATH" ]; then
+  echo "Upgrade Complete"
+else
   if [ -e 'install.sh' ]; then
-    echo "Remove temporary install.sh"
+    echo "Install Complete - Cleanup install.sh"
     rm install.sh
   fi
 fi
+echo "-----------------------------------------------"
+echo "6 - Installation Complete"
+echo "-----------------------------------------------"
+echo ""
+echo "1. Reboot RPI if there are significant Raspbian system updates"
+echo "2. Raspberry pi needs a monitor/TV attached to display game window"
+echo "3. Run hotspot-game.py with the Raspbian Desktop GUI running"
+echo "4. To start game open file manager or a Terminal session then change to" 
+echo "   hotspot-game folder and launch per commands below"
+echo ""
+echo "   cd ~/hotspot-game"
+echo "   ./hotspot-game.py"
+echo ""
+echo "-----------------------------------------------"
+echo "See Readme.md for Further Details"
+echo $0 $ver "Good Luck Claude ..."
+echo "Bye"
+echo ""
