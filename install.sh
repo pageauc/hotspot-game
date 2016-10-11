@@ -1,17 +1,18 @@
-#!/bin/sh
+#!/bin/bash
 # Convenient hotspot-game install.sh script written by Claude Pageau 1-Jul-2016
 ver="1.9"
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" # folder location of this script
-GAMEPATH='~/hotspot-game'
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+GAME_DIR='hotspot-game'
 echo "      hotspot-game Install.sh script ver $ver"
 echo "Install or Upgrade hotspot-game Object speed tracking"
 echo "-----------------------------------------------"
 echo "Checking for hotspot-game folder"
 cd ~
-mkdir -p $GAMEPATH
-cd $GAMEPATH
+mkdir -p $GAME_DIR
+cd $GAME_DIR
 echo "Done Folder Create"
-pwd
+INSTALL_PATH=$( pwd )
+echo "Install Folder is " $INSTALL_PATH
 echo "1 - Downloading github repo files"
 wget -O install.sh -q --show-progress https://raw.github.com/pageauc/hotspot-game/master/install.sh
 if [ $? -ne 0 ] ;  then
@@ -55,17 +56,12 @@ echo "cd ~/hotspot-game"
 echo "./hotspot-game.py"
 echo
 echo "Good Luck Claude"
-cd $DIR 
-if [ -e 'install.sh' ]; then
-  echo "Remove temporary install.sh"
-  echo "Updated install.sh in ~/hotspot-game folder"
-  rm 'install.sh'
+cd $DIR
+echo "Script Path="$DIR
+echo "Install Path="$INSTALL_PATH
+if [ "$DIR" != "$INSTALL_PATH" ]; then
+  if [ -e 'install.sh' ]; then
+    echo "Remove temporary install.sh"
+    rm install.sh
+  fi
 fi
-
-
-
-
-
-
-
-
