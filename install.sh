@@ -11,13 +11,13 @@ echo "------------------------------------------------"
 echo "Checking for hotspot-game folder"
 cd ~
 if [ -d "$GAME_DIR" ] ; then
+  STATUS="Upgrade"
+  echo "Upgrade hotspot-game files"
+else  
   echo "New hotspot-game Install"
   STATUS="New Install"
   mkdir -p $GAME_DIR
   echo "$GAME_DIR Folder Created"
-else
-  STATUS="Upgrade"
-  echo "Upgrade hotspot-game files"  
 fi    
 cd $GAME_DIR
 INSTALL_PATH=$( pwd )
