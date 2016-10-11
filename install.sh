@@ -1,15 +1,17 @@
 #!/bin/sh
 # Convenient hotspot-game install.sh script written by Claude Pageau 1-Jul-2016
 ver="1.9"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" # folder location of this script
+GAMEPATH='~/hotspot-game'
 echo "      hotspot-game Install.sh script ver $ver"
 echo "Install or Upgrade hotspot-game Object speed tracking"
 echo "-----------------------------------------------"
 echo "Checking for hotspot-game folder"
 cd ~
-mkdir -p hotspot-game
-cd ~/hotspot-game
+mkdir -p $GAMEPATH
+cd $GAMEPATH
+echo "Done Folder Create"
 pwd
-echo "Done Folder"
 echo "1 - Downloading github repo files"
 wget -O install.sh -q --show-progress https://raw.github.com/pageauc/hotspot-game/master/install.sh
 if [ $? -ne 0 ] ;  then
@@ -27,6 +29,7 @@ chmod +x install.sh
 echo "Done Permissions"
 echo "3 - Performing Raspbian System Update"
 echo "    This Will Take Some Time ...."
+echo ""
 sudo apt-get -y update
 echo "Done update"
 echo "4 - Performing Raspbian System Upgrade"
@@ -41,7 +44,7 @@ echo "Done Dependencies"
 echo "6 - Installation Complete"
 echo "-----------------------------------------------"
 echo "See Readme.md for hotspot-game Program Requirements, Configuration and Calibration"
-echo
+echo ""
 echo "You should reboot RPI if there are significant Raspbian system file updates"
 echo "You must run this game from the raspberry pi with monitor/TV attached"
 echo "and the Raspbian Desktop GUI running"
@@ -51,9 +54,12 @@ echo ""
 echo "cd ~/hotspot-game"
 echo "./hotspot-game.py"
 echo
-echo "Good Luck Claude" 
-if [ -e ~/install.sh] ; then
-  rm ~/install.sh
+echo "Good Luck Claude"
+cd $DIR 
+if [ -e 'install.sh' ]; then
+  echo "Remove temporary install.sh"
+  echo "Updated install.sh in ~/hotspot-game folder"
+  rm 'install.sh'
 fi
 
 
