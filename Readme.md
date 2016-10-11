@@ -1,6 +1,12 @@
 # hotspot-game.py - MOTION TRACKING GAME
 ### A Raspberry Pi Camera Motion Tracking Game using Video Stream, OpenCV2 and Python2
 
+#### Reference Information
+* hotspot-game YouTube video here https://youtu.be/xFl3lmbEO9Y
+* RPI Forum post here https://www.raspberrypi.org/forums/viewtopic.php?p=1026124#p1026124
+* motion-track YouTube video here using RPI B2 https://youtu.be/09JS7twPBsQ
+* github repo here https://github.com/pageauc/hotspot-game
+
 #### Quick Install
 For easy hotspot-game install onto a Raspberry Pi with latest raspbian. 
 
@@ -17,15 +23,12 @@ download and execute the github install.sh script for hotspot-game
     chmod +x install.sh
     ./install.sh
 
-This will install required files into a folder called ~/hotspot-game    
+This will install required files into a folder called ~/hotspot-game.
+IMPORTANT - install.sh will perform a raspbian update and upgrade that  
+            could take a while.  Reboot if there are significant changes.
+            
 See How to Run Program section below for details on running hotspot-game.py
     
-#### Reference Information
-* hotspot-game YouTube video here https://youtu.be/xFl3lmbEO9Y
-* RPI Forum post here https://www.raspberrypi.org/forums/viewtopic.php?p=1026124#p1026124
-* motion-track YouTube video here using RPI B2 https://youtu.be/09JS7twPBsQ
-* github repo here https://github.com/pageauc/hotspot-game
-
 #### Program Description
 This is a raspberry pi computer openCV2 motion tracking game.
 It is written in python2 and uses openCV2 and a Raspbery Pi camera module running
@@ -51,10 +54,12 @@ be in a RPI desktop GUI session.  Open a desktop terminal session, File Manger.
 or Menu Programming, Python2 (IDLE). Navigate to the hotspot-game folder and
 execute 
 
+    cd ~/hotspot-game
     ./hotspot-game.py or
 
 or
     
+    cd ~/hotspot-game
     python ./hotspot-game.py
     
 ### Settings

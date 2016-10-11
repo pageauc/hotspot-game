@@ -26,9 +26,12 @@ chmod +x hotspot-game.py
 chmod +x install.sh
 echo "Done Permissions"
 echo "3 - Performing Raspbian System Update"
+echo "    This Will Take Some Time ...."
 sudo apt-get -y update
 echo "Done update"
 echo "4 - Performing Raspbian System Upgrade"
+echo "    This Will Take Some Time ...."
+echo ""
 sudo apt-get -y upgrade
 echo "Done upgrade"
 echo "5 - Installing hotspot-game Dependencies"
@@ -40,16 +43,18 @@ echo "-----------------------------------------------"
 echo "See Readme.md for hotspot-game Program Requirements, Configuration and Calibration"
 echo
 echo "You should reboot RPI if there are significant Raspbian system file updates"
-echo "You must run this game from the raspberry pi with monitor attached"
+echo "You must run this game from the raspberry pi with monitor/TV attached"
 echo "and the Raspbian Desktop GUI running"
-echo "To start open file manager or a Terminal session then change to" 
+echo "To start game open file manager or a Terminal session then change to" 
 echo "hotspot-game folder and launch per command below"
+echo ""
 echo "cd ~/hotspot-game"
 echo "./hotspot-game.py"
 echo
 echo "Good Luck Claude" 
-rm ~/install.sh
-
+if [ -e ~/install.sh] ; then
+  rm ~/install.sh
+fi
 
 
 
