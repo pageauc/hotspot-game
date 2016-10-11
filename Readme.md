@@ -1,13 +1,13 @@
 # hotspot-game.py - MOTION TRACKING GAME
 ### A Raspberry Pi Camera Motion Tracking Game using Video Stream, OpenCV2 and Python2
 
-#### Reference Information
+### Reference Information
 * hotspot-game YouTube video here https://youtu.be/xFl3lmbEO9Y
 * RPI Forum post here https://www.raspberrypi.org/forums/viewtopic.php?p=1026124#p1026124
 * motion-track YouTube video here using RPI B2 https://youtu.be/09JS7twPBsQ
 * github repo here https://github.com/pageauc/hotspot-game
 
-#### Quick Install
+### Quick Install
 For easy hotspot-game install onto a Raspberry Pi with latest raspbian. 
 
     curl -L https://raw.github.com/pageauc/hotspot-game/master/install.sh | bash
@@ -16,7 +16,7 @@ From a computer logged into the RPI via ssh(Putty) session use mouse to highligh
 Then select ssh(Putty) window, mouse right click, paste.  The command should 
 download and execute the github install.sh script for hotspot-game
 
-#### or Manual install
+### or Manual install
 
     cd ~
     wget https://raw.github.com/pageauc/hotspot-game/master/install.sh
@@ -29,7 +29,7 @@ IMPORTANT - install.sh will perform a raspbian update and upgrade that
             
 See How to Run Program section below for details on running hotspot-game.py
     
-#### Program Description
+### Program Description
 This is a raspberry pi computer openCV2 motion tracking game.
 It is written in python2 and uses openCV2 and a Raspbery Pi camera module running
 in a threaded video stream to detect and track motion. Motion is tracked and
@@ -48,7 +48,7 @@ video not tested) or a VGA adapter. The program is run from the RPI GUI desktop 
 The default 640x480 window can be resized using the WINDOW_BIGGER resize multiplier variable.
 Use nano to edit if desired.
 
-#### How to Run Program    
+### How to Run Program    
 To launch program make sure camera and video display are connected. You must
 be in a RPI desktop GUI session.  Open a desktop terminal session, File Manger.
 or Menu Programming, Python2 (IDLE). Navigate to the hotspot-game folder and
@@ -69,7 +69,7 @@ modify these settings per the comments.  Most settings should be OK and should
 not need to be changed. Others may need to be fine tuned. The openCV settings most
 likely won't need to be changed unless you are familiar with them.
 
-#### Credits
+### Credits
 Some of this code is based on a YouTube tutorial by
 Kyle Hounslow using C here https://www.youtube.com/watch?v=X6rPdRZzgjg
 
