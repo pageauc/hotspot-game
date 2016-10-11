@@ -1,15 +1,7 @@
 #!/bin/bash
-# Convenient hotspot-game install.sh script written by Claude Pageau 1-Jul-2016
-ver="1.0"
+# Convenient hotspot-game hotspot-install.sh script written by Claude Pageau 1-Jul-2016
+ver="1.2"
 GAME_DIR='hotspot-game'  # Default folder install location
-# Remember where this script was launched from
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-echo "------------------------------------------------"
-echo "      hotspot-game Install.sh script ver $ver"
-echo "Install or Upgrade hotspot-game Object speed tracking"
-echo "------------------------------------------------"
-echo "Checking for hotspot-game folder"
-cd ~
 if [ -d "$GAME_DIR" ] ; then
   STATUS="Upgrade"
   echo "Upgrade hotspot-game files"
@@ -19,13 +11,21 @@ else
   mkdir -p $GAME_DIR
   echo "$GAME_DIR Folder Created"
 fi    
+# Remember where this script was launched from
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+echo "------------------------------------------------"
+echo "      hotspot-Install.sh script ver $ver"
+echo "      $STATUS hotspot-game for Object speed tracking"
+echo "------------------------------------------------"
+echo "Checking for hotspot-game folder"
+cd ~
 cd $GAME_DIR
 INSTALL_PATH=$( pwd )
 echo "------------------------------------------------"
 echo "1 - Downloading GitHub Repo files to $INSTALL_PATH"
-wget -O install.sh -q --show-progress https://raw.github.com/pageauc/hotspot-game/master/hotspot-install.sh
+wget -O hotspot-install.sh -q --show-progress https://raw.github.com/pageauc/hotspot-game/master/hotspot-install.sh
 if [ $? -ne 0 ] ;  then
-  wget -O install.sh https://raw.github.com/pageauc/hotspot-game/master/hotspot-install.sh
+  wget -O hotspot-install.sh https://raw.github.com/pageauc/hotspot-game/master/hotspot-install.sh
   wget -O hotspot-game.py https://raw.github.com/pageauc/hotspot-game/master/hotspot-game.py 
   wget -O Readme.md https://raw.github.com/pageauc/hotspot-game/master/Readme.md  
 else
@@ -35,7 +35,7 @@ fi
 echo "Done Download"
 echo "2 - Make required Files Executable"
 chmod +x hotspot-game.py
-chmod +x install.sh
+chmod +x hotspot-install.sh
 echo "Done Permissions"
 echo "3 - Performing Raspbian System Update"
 echo "    This Will Take Some Time ...."
@@ -52,7 +52,7 @@ sudo apt-get install -y python-opencv python-picamera
 sudo apt-get install -y fonts-freefont-ttf # Required for Jessie Lite Only
 echo "Done Dependencies"
 cd $DIR
-# Check if install.sh was launched from hotspot-game folder
+# Check if hotspot-install.sh was launched from hotspot-game folder
 if [ "$DIR" = "$INSTALL_PATH" ]; then
   echo "Upgrade Complete"
 else

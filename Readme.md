@@ -10,18 +10,18 @@
 ### Quick Install
 For easy hotspot-game install onto a Raspberry Pi with latest raspbian. 
 
-    curl -L https://raw.github.com/pageauc/hotspot-game/master/install.sh | bash
+    curl -L https://raw.github.com/pageauc/hotspot-game/master/hotspot-install.sh | bash
 
 From a computer logged into the RPI via ssh(Putty) session use mouse to highlight command above, right click, copy.  
 Then select ssh(Putty) window, mouse right click, paste.  The command should 
-download and execute the github install.sh script for hotspot-game
+download and execute the github hotspot-install.sh script for hotspot-game
 
 ### or Manual install
 
     cd ~
-    wget https://raw.github.com/pageauc/hotspot-game/master/install.sh
-    chmod +x install.sh
-    ./install.sh
+    wget https://raw.github.com/pageauc/hotspot-game/master/hotspot-install.sh
+    chmod +x hotspot-install.sh
+    ./hotspot-install.sh
 
 This will install required files into a folder called ~/hotspot-game.
 IMPORTANT - install.sh will perform a raspbian update and upgrade that  
