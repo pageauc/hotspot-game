@@ -55,9 +55,9 @@ or Menu Programming, Python2 (IDLE). Navigate to the hotspot-game folder and
 execute 
 
     cd ~/hotspot-game
-    ./hotspot-game.py or
+    ./hotspot-game.py
 
-or
+#### or
     
     cd ~/hotspot-game
     python ./hotspot-game.py
