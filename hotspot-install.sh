@@ -3,6 +3,7 @@
 ver="1.2"
 GAME_DIR='hotspot-game'  # Default folder install location
 
+cd ~
 if [ -d "$GAME_DIR" ] ; then
   STATUS="Upgrade"
   echo "Upgrade hotspot-game files"
@@ -13,7 +14,6 @@ else
   echo "$GAME_DIR Folder Created"
 fi 
 
-cd ~
 cd $GAME_DIR
 INSTALL_PATH=$( pwd )   
 
