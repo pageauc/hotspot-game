@@ -10,15 +10,22 @@ echo "Install or Upgrade hotspot-game Object speed tracking"
 echo "------------------------------------------------"
 echo "Checking for hotspot-game folder"
 cd ~
-mkdir -p $GAME_DIR
+if [ -d "$GAME_DIR" ] ; then
+  echo "New hotspot-game Install"
+  STATUS="New Install"
+  mkdir -p $GAME_DIR
+  echo "$GAME_DIR Folder Created"
+else
+  STATUS="Upgrade"
+  echo "Upgrade hotspot-game files"  
+fi    
 cd $GAME_DIR
-echo "Done Folder Create"
 INSTALL_PATH=$( pwd )
 echo "Install Folder is" $INSTALL_PATH
 echo "1 - Downloading github repo files"
-wget -O install.sh -q --show-progress https://raw.github.com/pageauc/hotspot-game/master/install.sh
+wget -O install.sh -q --show-progress https://raw.github.com/pageauc/hotspot-game/master/hotspot-install.sh
 if [ $? -ne 0 ] ;  then
-  wget -O install.sh https://raw.github.com/pageauc/hotspot-game/master/install.sh
+  wget -O install.sh https://raw.github.com/pageauc/hotspot-game/master/hotspot-install.sh
   wget -O hotspot-game.py https://raw.github.com/pageauc/hotspot-game/master/hotspot-game.py 
   wget -O Readme.md https://raw.github.com/pageauc/hotspot-game/master/Readme.md  
 else
@@ -49,13 +56,13 @@ cd $DIR
 if [ "$DIR" = "$INSTALL_PATH" ]; then
   echo "Upgrade Complete"
 else
-  if [ -e 'install.sh' ]; then
-    echo "Install Complete - Cleanup install.sh"
-    rm install.sh
+  if [ -e 'hotspot-install.sh' ]; then
+    echo "Install Complete - Cleanup hotspot-install.sh"
+    rm hotspot-install.sh
   fi
 fi
 echo "-----------------------------------------------"
-echo "6 - Installation Complete"
+echo "6 - $STATUS Complete"
 echo "-----------------------------------------------"
 echo ""
 echo "1. Reboot RPI if there are significant Raspbian system updates"
