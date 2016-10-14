@@ -64,10 +64,14 @@ execute
     
 ### Settings
 
-Variable values are stored in the hotspot-game.py file. Use the nano editor to
-modify these settings per the comments.  Most settings should be OK and should
-not need to be changed. Others may need to be fine tuned. The openCV settings most
-likely won't need to be changed unless you are familiar with them.
+Variable values are stored in the config.py file. Use the nano editor to
+modify these settings per the comments.  Most settings should be OK and will
+not need to be changed.  You may need to flip the camera image to suit your
+camera module orientation. Others line game settings may need to be fine tuned.  
+Most openCV settings will not need changing unless you are familiar with them.
+Make a backup of the config.py file if you want to experiment.  This will
+allow you to return to previous known good settings or just download
+default config.py again using the hotspot-install.sh script 
 
 ### Credits
 Some of this code is based on a YouTube tutorial by

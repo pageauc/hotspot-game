@@ -17,18 +17,45 @@ Here is my YouTube video demonstrating motion tracking using a
 Raspberry Pi B2 https://youtu.be/09JS7twPBsQ
 
 Requires a Raspberry Pi with a RPI camera module installed and configured
-dependencies
+dependencies and a monitor or hdtv connected for game play window.
 
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install python-opencv python-picamera
+see Readme.md for detailed instructions
 
 """
-progname = "hotspot_game.py ver 0.8"
+
+progname = "hotspot_game.py ver 0.89"
 print("%s using python2 and OpenCV2" % (progname))
 print("Loading Please Wait ....")
 
 import os
+mypath=os.path.abspath(__file__)       # Find the full path of this python script
+baseDir=mypath[0:mypath.rfind("/")+1]  # get the path location only (excluding script name)
+baseFileName=mypath[mypath.rfind("/")+1:mypath.rfind(".")]
+progName = os.path.basename(__file__)
+
+# Check for variable file to import and error out if not found.
+configFilePath = baseDir + "config.py"
+if not os.path.exists(configFilePath):
+    print("ERROR - Missing config.py file - Could not find Configuration file %s" % (configFilePath))
+    import urllib2
+    config_url = "https://raw.github.com/pageauc/hotspot-game/master/config.py"
+    print("   Attempting to Download config.py file from %s" % ( config_url ))
+    try:
+        wgetfile = urllib2.urlopen(config_url)
+    except:
+        print("ERROR - Download of config.py Failed")
+        print("   Try Rerunning the hotspot-install.sh Again.")
+        print("   or")
+        print("   Perform GitHub curl install per Readme.md")
+        print("   and Try Again")
+        print("Exiting %s" % ( progName ))
+        quit()
+    f = open('config.py','wb')
+    f.write(wgetfile.read())
+    f.close()   
+# Read Configuration variables from config.py file
+from config import *
+
 import time
 from picamera import PiCamera
 from picamera.array import PiRGBArray
@@ -36,48 +63,6 @@ import cv2
 import numpy as np
 from threading import Thread
 from random import randint
-
-# Display Settings
-window_on = True       # Set to True displays opencv windows (GUI desktop reqd)
-WINDOW_BIGGER = 1.5    # resize multiplier if window_on=True then makes opencv window bigger
-debug = True           # Set to False for no data display
-
-# Game Settings
-hi_score_path = "hotspot_hi_score"
-
-# Game Timers
-target_timer = 4    # seconds to show target rectangle on screen before moving it
-
-# Game Settings
-hotspot_skill = 150  # starting size of rectangle in pixels
-hotspot_max_levels = 10   # default=10 Number of game levels lasting hotspot_level_timer 
-hotspot_level_timer = 10  # seconds of time on each level
-hotspot_min_size = int( hotspot_skill / 8 )
-
-# Camera Settings
-CAMERA_WIDTH = 640
-CAMERA_HEIGHT = 480
-CAMERA_HFLIP = False
-CAMERA_VFLIP = True
-CAMERA_ROTATION = 0
-CAMERA_FRAMERATE = 45
-
-# Menu Settings
-MENU_COUNTER = 12     # number of motions inside menu for selection
-MENU_WIDTH = 200
-MENU_HEIGHT = 75
-MENU_LINE_WIDTH = 2
-
-# Motion Tracking Settings
-THRESHOLD_SENSITIVITY = 25
-BLUR_SIZE = 10
-MIN_AREA = 600      # excludes all contours less than or equal to this Area
-CIRCLE_SIZE = 8      # diameter of circle to show motion location in window
-CIRCLE_LINE = 3      # thickness of line for circle
-FONT_SCALE = .5      # OpenCV window text font size scaling factor default=.5 (lower is smaller)
-LINE_THICKNESS = 2   # thickness of bounding line in pixels
-big_w = int(CAMERA_WIDTH * WINDOW_BIGGER)
-big_h = int(CAMERA_HEIGHT * WINDOW_BIGGER)
 
 #-----------------------------------------------------------------------------------------------  
 class PiVideoStream:    # Video Stream using Treading

@@ -29,9 +29,11 @@ wget -O hotspot-install.sh -q --show-progress https://raw.github.com/pageauc/hot
 if [ $? -ne 0 ] ;  then
   wget -O hotspot-install.sh https://raw.github.com/pageauc/hotspot-game/master/hotspot-install.sh
   wget -O hotspot-game.py https://raw.github.com/pageauc/hotspot-game/master/hotspot-game.py 
+  wget -O config.py https://raw.github.com/pageauc/hotspot-game/master/config.py   
   wget -O Readme.md https://raw.github.com/pageauc/hotspot-game/master/Readme.md  
 else
   wget -O hotspot-game.py -q --show-progress https://raw.github.com/pageauc/hotspot-game/master/hotspot-game.py
+  wget -O config.py -q --show-progress https://raw.github.com/pageauc/hotspot-game/master/config.py  
   wget -O Readme.md -q --show-progress  https://raw.github.com/pageauc/hotspot-game/master/Readme.md  
 fi
 echo "Done Download"
