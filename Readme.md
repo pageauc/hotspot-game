@@ -68,10 +68,10 @@ execute
 Variable values are stored in the config.py file. Use the nano editor to
 modify these settings per the comments.  Most settings should be OK and will
 not need to be changed.  You may need to flip the camera image to suit your
-camera module orientation. Others line game settings may need to be fine tuned.  
+camera module orientation. Others like game settings may need to be fine tuned.  
 Most openCV settings will not need changing unless you are familiar with them.
 Make a backup of the config.py file if you want to experiment.  This will
-allow you to return to previous known good settings or just download
+allow you to return to previous known good settings or you can just download
 default config.py again using the hotspot-install.sh script 
 
 ### Credits
