@@ -23,9 +23,10 @@ download and execute the github hotspot-install.sh script for hotspot-game
     chmod +x hotspot-install.sh
     ./hotspot-install.sh
 
-This will install required files into a folder called ~/hotspot-game.
-IMPORTANT - install.sh will perform a raspbian update and upgrade that  
-            could take a while.  Reboot if there are significant changes.
+This will install required files into a folder called ~/hotspot-game.    
+
+* IMPORTANT - install.sh will perform a raspbian update and upgrade that 
+could take a while.  Reboot if there are significant changes.
             
 See How to Run Program section below for details on running hotspot-game.py
     
