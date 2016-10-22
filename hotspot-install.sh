@@ -44,21 +44,28 @@ chmod +x hotspot-game.py
 chmod +x hotspot-install.sh
 echo "Done Permissions"
 echo "------------------------------------------------"
-echo ""
-echo "3 - Performing Raspbian System Update"
-echo "    This Will Take Some Time ...."
-echo ""
-sudo apt-get -y update
-echo "Done update"
-echo "------------------------------------------------"
-echo ""
-echo "4 - Performing Raspbian System Upgrade"
-echo "    This Will Take Some Time ...."
-echo ""
-sudo apt-get -y upgrade
-echo "Done upgrade"
-echo "------------------------------------------------"
-echo ""
+# check if system was updated today
+if [ '$((date +%d-%m-%y)' != '$(date -r //var/lib/dpkg/info +%d-%m-%y)' ] ; then
+  echo ""
+  echo "3 - Performing Raspbian System Update"
+  echo "    This Will Take Some Time ...."
+  echo ""
+  sudo apt-get -y update
+  echo "Done update"
+  echo "------------------------------------------------"
+  echo ""
+  echo "4 - Performing Raspbian System Upgrade"
+  echo "    This Will Take Some Time ...."
+  echo ""
+  sudo apt-get -y upgrade
+  echo "Done upgrade"
+else
+  echo "4 Raspbian System is Up To Date"
+  echo ""  
+fi  
+  echo "------------------------------------------------"
+  echo ""
+
 echo "5 - Installing hotspot-game Dependencies"
 sudo apt-get install -y python-opencv python-picamera
 sudo apt-get install -y fonts-freefont-ttf # Required for Jessie Lite Only
