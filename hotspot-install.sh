@@ -45,7 +45,7 @@ chmod +x hotspot-install.sh
 echo "Done Permissions"
 echo "------------------------------------------------"
 # check if system was updated today
-if [ '$((date +%d-%m-%y)' == '$(date -r //var/lib/dpkg/info +%d-%m-%y)' ] ; then
+if [ '$((date +%d-%m-%y)' == '$(date -r /var/lib/dpkg/info +%d-%m-%y)' ] ; then
   echo "4 Raspbian System is Up To Date"
   echo ""  
 else
