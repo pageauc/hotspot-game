@@ -65,9 +65,8 @@ else
   sudo apt-get -y upgrade
   echo "Done upgrade"
 fi  
-  echo "------------------------------------------------"
-  echo ""
-
+echo "------------------------------------------------"
+echo ""
 echo "5 - Installing hotspot-game Dependencies"
 sudo apt-get install -y python-opencv python-picamera
 sudo apt-get install -y fonts-freefont-ttf # Required for Jessie Lite Only
