@@ -25,7 +25,7 @@ see Readme.md for detailed instructions
 
 """
 
-version= "ver 0.90"
+version= "ver 0.91"
 
 import os
 mypath=os.path.abspath(__file__)       # Find the full path of this python script
@@ -243,10 +243,10 @@ def hotspot_game():
     ready_counter = 4
 
     # Game Section indicators
-    begingame = True
+    begingame = False
     readyplayer = False
     playgame = False
-    endgame = False
+    endgame = True
 
     # Initialize first image as stream.array
     image2 = vs.read()
@@ -395,20 +395,21 @@ def hotspot_game():
 
             elif endgame:      # Game result display and Play, Quit Menu
                 # Game Over ask to play again.
-                play_x = int(CAMERA_WIDTH/6)
-                play_y = 200
 
-                if hotspot_score > hotspot_hiscore:
-                    m_text = "GAME OVER .. NEW HI SCORE %i"  % ( hotspot_score )
-                    save_hiscore(hi_score_path, hotspot_score)
-                else:
-                    m_text = "GAME OVER .. YOUR SCORE %i"  % ( hotspot_score )
-                cv2.putText(image2, m_text, ( play_x, int(CAMERA_HEIGHT/3)), cv2.FONT_HERSHEY_SIMPLEX, .75 , (0,0,255), 2)
+                if hotspot_score > 0:
+                    if hotspot_score > hotspot_hiscore:
+                        m_text = "GAME OVER .. NEW HI SCORE %i"  % ( hotspot_score )
+                        save_hiscore(hi_score_path, hotspot_score)
+                    else:
+                        m_text = "GAME OVER .. YOUR SCORE %i"  % ( hotspot_score )
+                    cv2.putText(image2, m_text, ( play_x, int(CAMERA_HEIGHT/3)), cv2.FONT_HERSHEY_SIMPLEX, .75 , (0,0,255), 2)
 
                 # Display Play and Quit Menu Choices
                 # Play Again Menu Box
+                play_x = int(CAMERA_WIDTH/6)
+                play_y = 200                
                 cv2.rectangle(image2, (play_x, play_y), (play_x+ MENU_WIDTH, play_y+ MENU_HEIGHT), (0,255,0), MENU_LINE_WIDTH)
-                cv2.putText(image2, "PLAY AGAIN ?", ( play_x + int(MENU_WIDTH/3), int( play_y + MENU_HEIGHT/2)),
+                cv2.putText(image2, "PLAY", ( play_x + int(MENU_WIDTH/3), int( play_y + MENU_HEIGHT/2)),
                                                       cv2.FONT_HERSHEY_SIMPLEX, FONT_SCALE , (0,255,0), MENU_LINE_WIDTH)
                 # Display Quit Menu Box
                 quit_x = play_x + MENU_WIDTH + 20
@@ -417,7 +418,7 @@ def hotspot_game():
                 cv2.putText(image2, "QUIT", ( quit_x + int(MENU_WIDTH/3), int( quit_y + MENU_HEIGHT/2)),
                                               cv2.FONT_HERSHEY_SIMPLEX, FONT_SCALE , (0,255,0), MENU_LINE_WIDTH)
 
-                # Play Again Menu Box
+                # Play Menu Box
                 if (cx > play_x and cx < play_x + MENU_WIDTH and cy > play_y and cy < play_y + MENU_HEIGHT):
                     cv2.circle(image2,(cx,cy),CIRCLE_SIZE,(0,0,255),CIRCLE_LINE)
                     play_hitcount += 1
