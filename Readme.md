@@ -75,12 +75,12 @@ execute
     cd ~/hotspot-game
     ./hotspot-game.py
 
-#### or
+### or
     
     cd ~/hotspot-game
     python ./hotspot-game.py
     
-### Settings
+## Settings
 
 Variable values are stored in the config.py file. Use the nano editor to
 modify these settings per the comments.  Most settings should be OK and will
@@ -91,7 +91,7 @@ Make a backup of the config.py file if you want to experiment.  This will
 allow you to return to previous known good settings or you can just download
 default config.py again using the hotspot-install.sh script 
 
-### Credits
+## Credits
 Some of this code is based on a YouTube tutorial by
 Kyle Hounslow using C here https://www.youtube.com/watch?v=X6rPdRZzgjg
 
